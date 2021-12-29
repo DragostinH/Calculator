@@ -2,25 +2,32 @@
 ::after,
 ::before {
     box-sizing: border-box;
+    font-family: 'Source Code Pro', monospace;
 }
 
-body{
+body {
     height: 100vh;
     width: 100vh;
-    background-color: cadetblue;
+    background: rgb(2, 0, 36);
+    background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(52, 52, 113, 1) 100%, rgba(0, 212, 255, 1) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 
-#container{
-    height: 410px;
-    width: 290px;
+#container {
+    display: flex;
+    background: rgb(131, 58, 180);
+    background: linear-gradient(322deg, rgba(131, 58, 180, 1) 0%, rgba(64, 187, 255, 1) 100%, rgba(252, 176, 69, 1) 100%);
+    flex-direction: column;
+    border-radius: 12px;
+    height: 450px;
+    width: 300px;
     border: 2px solid black;
 }
 
-.calculator-box{
+.calculator-box {
     /* display: flex; */
     /* flex-wrap: wrap; */
     /* align-items: center; */
@@ -30,34 +37,64 @@ body{
 
 }
 
-.controls{
+.operators {
+    font-weight: 700;
+    font-size: larger;
+    background-color:#41729F;
+    border: 1px solid #C3E0E5;
+}
+
+.clear-button{
+    font-weight: 700;
+    font-size: larger;
+    background-color: #274472;
+    border: 1px solid #C3E0E5;
+}
+
+.calc-numbers {
+    font-weight: 300;
+    background-color: #C3E0E5;
+    border: 1px solid #41729F;
+
+}
+
+.controls {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-button{
- width: 65px;
-height: 65px; 
-/* margin: 0.125em; */
-padding: 0;
-/* font-size: large; */
-/* padding: 23px; */
+button {
+    width: 65px;
+    height: 65px;
+    border: none;
+    margin: 2px;
+    border-radius: 3px;
+    /* margin: 0.125em; */
+    padding: 0;
+    /* font-size: large; */
+    /* padding: 23px; */
 }
 
-.field{
+#field {
     display: flex;
     align-items: center;
     justify-content: end;
-    width: 100%;
     height: 40px;
-    background-color: white;
-    border: 1px solid red;
+    background-color: #C3E0E5;
+    /* border: 1px solid red; */
     text-align: right;
+    margin: 1em;
+    border-radius: 4px;
 }
 
-.equals{
+.equals {
 
     width: 130px;
 
+}
+
+button:hover{
+    background-color: hsl(216, 59%, 13%);
+    color: #C3E0E5;
 }

@@ -8,31 +8,34 @@
     <link rel="stylesheet" href="style.css">
     <script src="./app.js" defer></script>
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet"> 
 </head>
 
 <body>
     <div id="container">
         <section class="calculator-box">
-            <p class="field">0</p>
-
+            <p id="field" aria-placeholder="0"></p>
+            <!-- <input type="text" name="" id="field" placeholder="0"> -->
             <div class="controls">
-                <button>C</button>
-                <button>√</button>
-                <button>x<sup>2</sup></button>
-                <button>+</button>
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button>-</button>
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button>*</button>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>/</button>
-                <button>0</button>
+                <button class="clear-button">C</button>
+                <button class="operators">√</button>
+                <button class="operators">x²</button>
+                <button class="operators">+</button>
+                <button class="calc-numbers">7</button>
+                <button class="calc-numbers">8</button>
+                <button class="calc-numbers">9</button>
+                <button class="operators">-</button>
+                <button class="calc-numbers">4</button>
+                <button class="calc-numbers">5</button>
+                <button class="calc-numbers">6</button>
+                <button class="operators">*</button>
+                <button class="calc-numbers">1</button>
+                <button class="calc-numbers">2</button>
+                <button class="calc-numbers">3</button>
+                <button class="operators">/</button>
+                <button class="calc-numbers">0</button>
                 <button>.</button>
                 <button class="equals">=</button>
             </div>
