@@ -5,7 +5,7 @@
     font-family: 'Source Code Pro', monospace;
 }
 
-html{
+html {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,23 +34,19 @@ body {
 }
 
 .calculator-box {
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    /* align-items: center; */
-    /* justify-content: center; */
     height: 100%;
     width: 100%;
-
 }
+
 
 .operators {
     font-weight: 700;
     font-size: larger;
-    background-color:#41729F;
+    background-color: #41729F;
     border: 1px solid #C3E0E5;
 }
 
-.clear-button{
+.clear-button {
     font-weight: 700;
     font-size: larger;
     background-color: #274472;
@@ -83,15 +79,29 @@ button {
 }
 
 #field {
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    height: 40px;
+    /* display: flex; */
+    /* align-items: center;
+    justify-content: end; */
+    /* height: 40px; */
     background-color: #C3E0E5;
     /* border: 1px solid red; */
     text-align: right;
+    margin: 0em;
+    border-radius: 0;
+}
+
+.top-field,
+.bottom-field{
+height: 20px;
+}
+
+.calc-display {
+    border: 1px solid red;
     margin: 1em;
-    border-radius: 4px;
+}
+
+.field-span {
+    display: inline;
 }
 
 .equals {
@@ -100,7 +110,7 @@ button {
 
 }
 
-button:hover{
+button:hover {
     background-color: hsl(216, 59%, 13%);
     color: #C3E0E5;
 }

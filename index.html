@@ -9,14 +9,21 @@
     <script src="./app.js" defer></script>
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&family=Source+Code+Pro:wght@300;400;500&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <div id="container">
         <section class="calculator-box">
-            <p id="field" aria-placeholder="0"></p>
+
+            <div class="calc-display">
+                <p class="bottom-field" id="field"> </p>
+                <p class="top-field" id="field">
+                </p>
+            </div>
             <!-- <input type="text" name="" id="field" placeholder="0"> -->
             <div class="controls">
                 <button class="clear-button">C</button>

@@ -8,7 +8,14 @@
 // create operator function 
 // takes an operator (+, -, *, /) and calls one of the above functions
 
-let field = document.querySelector('#field');
+let bottomField = document.querySelector('.top-field');
+let topField = document.querySelector('.bottom-field');
+// topField.textContent = "TOP"
+// bottomField.textContent = "BOTTOM";
+// let spanField = document.createElement('span');
+// spanField.classList.add('field-span');
+
+// field.appendChild(spanField);
 let answer;
 let inputNumber;
 let secondNumber;
@@ -20,51 +27,48 @@ const clickedButton = document.querySelectorAll("button").forEach(button => {
         console.log(arrayOfNumsAndOperations);
         switch (button.textContent) {
             case "C":
-                clear(field);
+                clear(topField, bottomField);
                 arrayOfNumsAndOperations = [];
                 break;
             case "+":
-                chosenOperator = '+';
-                // field.textContent += ' + ';
-                arrayOfNumsAndOperations.push(parseInt(field.textContent));
-                arrayOfNumsAndOperations.push(chosenOperator);
-                console.log(arrayOfNumsAndOperations);
-                clear(field);
-                break;
+            // field.textContent += ' + ';
+            // clear(field);
             case "-":
-                chosenOperator = '-';
-                arrayOfNumsAndOperations.push(parseInt(field.textContent));
-                arrayOfNumsAndOperations.push(chosenOperator);
-                clear(field);
-                break;
+            // clear(field);
             case '*':
-                chosenOperator = '*';
-                arrayOfNumsAndOperations.push(parseInt(field.textContent));
-                arrayOfNumsAndOperations.push(chosenOperator);
-                clear(field);
-                break
+            // clear(field);
             case '/':
-                chosenOperator = '/';
-                arrayOfNumsAndOperations.push(parseInt(field.textContent));
+                if (!isNaN(answer) && answer != undefined) {
+                    chosenOperator = button.textContent;
+                    topField.textContent += ' ' + chosenOperator;
+                    arrayOfNumsAndOperations.push(chosenOperator)
+                    console.log(arrayOfNumsAndOperations);
+                    break;
+                }
+                chosenOperator = button.textContent;
+                arrayOfNumsAndOperations.push(parseInt(bottomField.textContent));
                 arrayOfNumsAndOperations.push(chosenOperator);
-                console.log(arrayOfNumsAndOperations);
-                clear(field);
+                bottomField.textContent += ' ' + chosenOperator + ' ';
+                bottomField.textContent = "";
+                topField.textContent = arrayOfNumsAndOperations[0] + ' ' + arrayOfNumsAndOperations[1];
+
+                // clear(field);
                 break;
             case '√':
-                field.textContent = sqrt(parseInt(field.textContent));
-
+                bottomField.textContent = sqrt(parseInt(bottomField.textContent));
                 break;
             case 'x²':
-                field.textContent = multiplyByPowers(parseInt(field.textContent), 2);
+                topField.textContent = multiplyByPowers(topField.textContent, 2);
                 break;
-
             case '=':
-                arrayOfNumsAndOperations.push(parseInt(field.textContent));
+                arrayOfNumsAndOperations.push(parseInt(bottomField.textContent));
                 answer =
                     operate(arrayOfNumsAndOperations);
-                field.textContent = answer;
-                console.log(arrayOfNumsAndOperations);
                 arrayOfNumsAndOperations = [];
+                arrayOfNumsAndOperations.push(answer);
+                topField.textContent = answer;
+                bottomField.textContent = "";
+                console.log(arrayOfNumsAndOperations);
                 break;
             case "1":
             case "2":
@@ -76,15 +80,14 @@ const clickedButton = document.querySelectorAll("button").forEach(button => {
             case "8":
             case "9":
             case "0":
-
-                if (arrayOfNumsAndOperations[arrayOfNumsAndOperations.length - 2] == field.textContent ||
-                    parseInt(field.textContent === 0 ||
-                        field.textContent === 'Infinity')) {
-                    clear(field);
-                    field.textContent += button.textContent;
-                    break;
-                }
-                field.textContent += button.textContent;
+                // if (arrayOfNumsAndOperations[arrayOfNumsAndOperations.length - 2] == bottomField.textContent ||
+                //     parseInt(bottomField.textContent === 0 ||
+                //         bottomField.textContent === 'Infinity')) {
+                //     clear(bottomField, bottomField);
+                //     bottomField.textContent += button.textContent;
+                //     break;
+                // }
+                bottomField.textContent += button.textContent;
                 break;
         }
         // return console.log(button.textContent);
@@ -106,8 +109,9 @@ const clickedButton = document.querySelectorAll("button").forEach(button => {
 // ************************************
 // Functions
 
-function clear(element) {
+function clear(element, secondElement) {
     element.textContent = "";
+    secondElement.textContent = "";
 }
 
 function add(a = 0, b = 0) {
@@ -187,9 +191,8 @@ function operate(arr) {
             case 'x²':
                 arr.unshift(multiplyByPowers(number, 2))
                 return arr[0];
-                break;
             default:
-                console.log("Something happened, you should have selected an operator");
+                arr.push("Incorrect synthax. Please Clear.");
                 break;
         }
 
